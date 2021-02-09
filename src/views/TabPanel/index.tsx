@@ -1,8 +1,8 @@
 import React from 'react';
 import clsx from 'clsx';
-import Box from '@material-ui/core/Box';
 
 import { useStyles } from './styles';
+import ExpandableTable from '../../components/ExpandableTable/'
 import SimpleTable from '../../components/SimpleTable/'
 import BasicTable from '../../components/BasicTable/'
 
@@ -21,9 +21,9 @@ function TabPanel(props: TabPanelProps) {
       {...other}
     >
       {value === index && (
-        <Box>
+        <div>
           {children}
-        </Box>
+        </div>
       )}
     </div>
   );
@@ -43,17 +43,17 @@ export default function SimpleTabs() {
 
   return (
     <div>
-      <button type="button" className={clsx(classes.tab, tabActive0)} onClick={() => handleClick(0)} >Tab1</button>
-      <button type="button" className={clsx(classes.tab, tabActive1)} onClick={() => handleClick(1)} >Tab2</button>
-      <button type="button" className={clsx(classes.tab, tabActive2)} onClick={() => handleClick(2)} >Tab3</button>
+      <button type="button" className={clsx(classes.tab, tabActive0)} onClick={() => handleClick(0)} >ExpandableTable</button>
+      <button type="button" className={clsx(classes.tab, tabActive1)} onClick={() => handleClick(1)} >BasicTable</button>
+      <button type="button" className={clsx(classes.tab, tabActive2)} onClick={() => handleClick(2)} >SimpleTable</button>
       <TabPanel value={value} index={0}>
-        <SimpleTable />
+        <ExpandableTable />
       </TabPanel>
       <TabPanel value={value} index={1}>
         <BasicTable />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Tab 3
+        <SimpleTable />
       </TabPanel>
     </div>
   );
